@@ -1,0 +1,11 @@
+[snowflake-dev]
+account='cx36875.ap-southeast-1' 
+user='TF_SNOW'
+role='SYSADMIN'
+private_key_path='.ssh/'
+
+[snowflake-test]
+account='cx36875.ap-southeast-1'
+user='TF_SNOW'
+role='SYSADMIN'
+private_key_path='.ssh/'

@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  terraform-utils:
+    image: cmdlabs/terraform-utils:11.0.3
+    env_file: .env
+    environment:
+      # - ${NO_SSL}
+      - SNOWFLAKE_AUTHENTICATOR=JWT
+      - SNOWFLAKE_CONFIG_PATH=/work/profiles/config
+      - SNOWFLAKE_PRIVATE_KEY_PATH=/work/init/snowflake_tf_snow_key.p8
+    entrypoint: ""
+    volumes:
+      - .:/work
+    working_dir: /work
+
+  envvars:
+    image: flemay/envvars:0.0.6
+    env_file: .env
+    working_dir: /work
+    volumes:
+      - .:/work

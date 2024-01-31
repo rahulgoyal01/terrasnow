@@ -1,0 +1,17 @@
+envvars:
+#  - name: AWS_REGION
+#    desc: AWS Region to deploy to
+#    optional: true
+#    tags:
+#      - aws
+
+  - name: TERRAFORM_WORKSPACE
+    desc: Terraform Workspace that will be deployed to
+    tags:
+      - terraform
+
+tags:
+#  - name: aws
+#    desc: AWS authentication envvars
+  - name: terraform
+    desc: Required to run Terraform commands
