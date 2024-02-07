@@ -11,12 +11,14 @@ provider "snowflake" {
   profile = "snowflake-dev"
 }
 
-# resource "snowflake_database" "db" {
-#   name = "TF_DEMO"
-# }
+locals {
+  workspace  = local.env[terraform.workspace]
 
-#resource "snowflake_warehouse" "warehouse" {
-#  name           = "TF_DEMO"
-#  warehouse_size = "large"
-#  auto_suspend   = 60
-#}
+  env = {
+      snowflake_dev = {
+      snowflake_profile = "snowflake-dev"
+      env         = "DEV"
+
+    }
+  }
+}

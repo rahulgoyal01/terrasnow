@@ -9,23 +9,22 @@ resource "snowflake_schema" "schema" {
   data_retention_days = 1
 }
 
-# module "intel_sp" {
-#   source = "../../modules/stored_proc"
+module "intel_sp" {
+  source = "../../modules/stored_proc"
 
-#   procedure_name = "SP_INTELEX_TEST"
-#   database_name  = snowflake_database.db.name
-#   schema_name    = snowflake_schema.schema.name
-#   return_type    = "VARCHAR"
-#   language       = "JAVASCRIPT"
+  procedure_name = "SP_INTELEX_TEST"
+  database_name  = "DEV"
+  schema_name    = "INTEL"
+  return_type    = "VARCHAR"
+  language       = "JAVASCRIPT"
 
-#   procedure_statement = <<EOT
-#                             var X=1
-#                             return X
-#                             EOT
+  # procedure_statement = <<EOT
+  #                           var X=1
+  #                           return X
+  #                           EOT
 
-# #   procedure_statement = file("${path.module}/../../files/dev/intelex_one.sql")
-
-# }
+  procedure_statement = file("${path.module}/../../files/dev/intel_one.sql")
+}
 
 # resource "snowflake_procedure" "proc" {
 #   name     = "SAMPLEPROC"

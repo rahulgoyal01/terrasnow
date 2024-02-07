@@ -23,13 +23,13 @@ variable "procedure_statement" {
   description = "Specifies the code used to create the procedure."
 }
 
-variable "arguments" {
-  type = list(object({
+variable "procedure_arguments" {
+  type        = list(object({
     name = string
     type = string
   }))
   description = "List of the arguments for the procedure."
-  default     = null
+  default     = []
 }
 
 variable "comment" {
